@@ -66,16 +66,16 @@ function key_to_signal() {
         } else {
             ch17_key();
 
-            // if (REMOTE_FLAG == RC) {
-            //     ch1 = parseInt(ch_mid_val);
-            //     ch2 = parseInt(ch_mid_val);
-            //     ch3 = parseInt(ch_mid_val);
-            //     ch4 = parseInt(ch_mid_val);
-            // } else if (REMOTE_FLAG == GIMBAL) {
-            //     ch2 = parseInt(ch_mid_val);
-            //     ch4 = parseInt(ch_mid_val);
-            //     ch9 = parseInt(ch_mid_val);
-            // }
+            if (REMOTE_FLAG == RC) {
+                ch1 = parseInt(ch_mid_val);
+                ch2 = parseInt(ch_mid_val);
+                ch3 = parseInt(ch_mid_val);
+                ch4 = parseInt(ch_mid_val);
+            } else if (REMOTE_FLAG == GIMBAL) {
+                ch2 = parseInt(ch_mid_val);
+                ch4 = parseInt(ch_mid_val);
+                ch9 = parseInt(ch_mid_val);
+            }
         }
     }
     catch (e) {
