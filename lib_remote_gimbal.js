@@ -563,8 +563,8 @@ global.ch12 = parseInt(ch_min_val);
 global.ch13 = parseInt(ch_min_val);
 global.ch14 = parseInt(ch_min_val);
 global.ch15 = parseInt(ch_min_val);
-global.ch16 = parseInt(330);
-global.ch17 = parseInt(ch_min_val);
+global.ch16 = parseInt(ch_min_val);
+global.ch17 = parseInt(330);
 
 function channel_val() {
     // console.log('ch1: ', ch1, 'ch2: ', ch2, 'ch3: ', ch3, 'ch4: ', ch4);
