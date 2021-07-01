@@ -696,7 +696,7 @@ function channel_val() {
     // rxbuf += '00';
     // console.log(rxbuf);
     console.log(Buffer.from(rxbuf, 'hex'));
-    // sbusPort.write(Buffer.from(rxbuf, 'hex'))
+    sbusPort.write(Buffer.from(rxbuf, 'hex'))
     sbusData();
 }
 
@@ -742,7 +742,7 @@ function sbusData () {
 }
 
 
-// sbusPortOpening();
+sbusPortOpening();
 
 function sbusPortOpening() {
     if (sbusPort == null) {
