@@ -56,10 +56,10 @@ try {
 }
 catch (e) {
     add_lib = {
-        name: 'lib_remote_sbus',
+        name: 'lib_remote_gimbal',
         target: 'armv6',
         description: "node [name] [portnum] [baudrate]",
-        scripts: 'node lib_remote_sbus /dev/ttyUSB3 115200',
+        scripts: 'node lib_remote_gimbal /dev/ttyUSB3 115200',
         data: ['SBUS'],
         control: ['REMOTE']
     };
