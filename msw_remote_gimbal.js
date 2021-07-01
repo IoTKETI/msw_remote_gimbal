@@ -233,13 +233,11 @@ function parseDataMission(topic, str_message) {
     try {
         // User define Code
         let obj_lib_data = JSON.parse(str_message);
-        console.log(obj_lib_data);
 
         if(fc.hasOwnProperty('global_position_int')) {
             Object.assign(obj_lib_data, JSON.parse(JSON.stringify(fc['global_position_int'])));
         }
         str_message = JSON.stringify(obj_lib_data);
-        console.log(str_message);
 
         ///////////////////////////////////////////////////////////////////////
 
