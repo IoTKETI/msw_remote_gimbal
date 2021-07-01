@@ -236,6 +236,7 @@ function ch5_key(ch_val) {
             ch_num = 0;
             clearInterval(ch5_interval);
         }
+        console.log(ch5);
     }, VALUE_CHANGE_TIMEOUT);
 }
 
