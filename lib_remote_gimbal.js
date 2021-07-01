@@ -24,7 +24,7 @@ const GIMBAL = 1;
 global.REMOTE_FLAG = GIMBAL;
 
 let TIMEOUT = 100;
-let VALUE_CHANGE_TIMEOUT = 50;
+let VALUE_CHANGE_TIMEOUT = 15;
 
 let ch_val = 0;
 let ch_num = 0;
