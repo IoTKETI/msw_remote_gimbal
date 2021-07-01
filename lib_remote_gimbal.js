@@ -39,8 +39,7 @@ function key_to_signal() {
             ch3_key(ch_val);
         } else if (ch_num === 4) {
             ch4_key(ch_val);  // Pan Right/LEFT
-        } else if (ch_num == 5) {
-            console.log(ch_val, ch_num);
+        } else if (ch_num === 5) {
             ch5_key(ch_val);  // Operation Mode
         } else if (ch_num === 6) {
             ch6_key(ch_val);  // Tilt Rate
@@ -237,7 +236,6 @@ function ch5_key(ch_val) {
             ch_num = 0;
             clearInterval(ch5_interval);
         }
-        console.log(ch5);
     }, VALUE_CHANGE_TIMEOUT);
 }
 
