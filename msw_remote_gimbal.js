@@ -45,7 +45,7 @@ catch (e) {
     config.sortie_name = '';
     config.directory_name = '';
     config.gcs = 'KETI_MUV';
-    config.drone = 'KETI_AA';
+    config.drone = 'KETI_WebRTC';
     config.lib = [];
 }
 
@@ -206,7 +206,7 @@ function msw_mqtt_connect(broker_ip, port) {
 }
 
 function on_receive_from_muv(topic, str_message) {
-    console.log('[' + topic + '] ' + str_message);
+    // console.log('[' + topic + '] ' + str_message);
 
     parseControlMission(topic, str_message);
 }
