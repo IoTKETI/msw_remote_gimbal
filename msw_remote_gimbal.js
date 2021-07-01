@@ -51,7 +51,7 @@ catch (e) {
 
 let add_lib = {};
 try {
-    add_lib = JSON.parse(fs.readFileSync('./' + config.directory_name + '/lib_sparrow_gun.json', 'utf8'));
+    add_lib = JSON.parse(fs.readFileSync('./' + config.directory_name + '/lib_remote_gimbal.json', 'utf8'));
     config.lib.push(add_lib);
 }
 catch (e) {
@@ -237,7 +237,6 @@ function parseDataMission(topic, str_message) {
         // str_message = JSON.stringify(obj_lib_data);
 
         ///////////////////////////////////////////////////////////////////////
-        sortie_name = 'disarm'
         let topic_arr = topic.split('/');
         let data_topic = '/Mobius/' + config.gcs + '/Mission_Data/' + config.drone + '/' + config.name + '/' + topic_arr[topic_arr.length-1];
         msw_mqtt_client.publish(data_topic + '/' + sortie_name, str_message);
