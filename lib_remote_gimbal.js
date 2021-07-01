@@ -696,6 +696,7 @@ function channel_val() {
     // console.log(rxbuf);
     console.log(Buffer.from(rxbuf, 'hex'));
     // sbusPort.write(Buffer.from(rxbuf, 'hex'))
+    sbusData();
 }
 
 function checksum_extra() {
