@@ -696,9 +696,6 @@ function channel_val() {
     // console.log(rxbuf);
     console.log(Buffer.from(rxbuf, 'hex'));
     // sbusPort.write(Buffer.from(rxbuf, 'hex'))
-    let data = {"sbus":rxbuf}
-    lib_mqtt_client.publish(data_topic, JSON.stringify(data));
-
 }
 
 function checksum_extra() {
@@ -720,8 +717,30 @@ function checksum_extra() {
 }
 
 
-// sbusPortOpening();
+function sbusData () {
+    let sbus = {};
+    sbus.ch1 = ch1;
+    sbus.ch2 = ch2;
+    sbus.ch3 = ch3;
+    sbus.ch4 = ch4;
+    sbus.ch5 = ch5;
+    sbus.ch6 = ch6;
+    sbus.ch7 = ch7;
+    sbus.ch8 = ch8;
+    sbus.ch9 = ch9;
+    sbus.ch10 = ch10;
+    sbus.ch11 = ch11;
+    sbus.ch12 = ch12;
+    sbus.ch13 = ch13;
+    sbus.ch14 = ch14;
+    sbus.ch15 = ch15;
+    sbus.ch16 = ch16;
+    sbus.ch17 = ch17;
+    lib_mqtt_client.publish(data_topic, JSON.stringify(sbus));
+}
 
+
+// sbusPortOpening();
 
 function sbusPortOpening() {
     if (sbusPort == null) {
