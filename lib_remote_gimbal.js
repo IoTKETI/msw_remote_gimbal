@@ -715,8 +715,8 @@ function channel_val() {
     rxbuf += ch17_low_byte;
     checksum_extra();
     // rxbuf += '00';
-    console.log(rxbuf);
-    // console.log(Buffer.from(rxbuf, 'hex'));
+    // console.log(rxbuf);
+    console.log(Buffer.from(rxbuf, 'hex'));
     sbusPort.write(Buffer.from(rxbuf, 'hex'))
     sbusData();
 }
