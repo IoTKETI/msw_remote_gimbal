@@ -39,7 +39,7 @@ function key_to_signal() {
             ch3_key(ch_val);
         } else if (ch_num === 4) {
             ch4_key(ch_val);  // Pan Right/LEFT
-        } else if (ch_num === 5) {
+        } else if (ch_num == 5) {
             console.log(ch_val, ch_num);
             ch5_key(ch_val);  // Operation Mode
         } else if (ch_num === 6) {
