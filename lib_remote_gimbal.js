@@ -538,13 +538,14 @@ function ch16_key(ch_val) {
 }
 
 
-function ch17_key(ch_val) {
+function ch17_key() {
     ch17 = Math.floor(Math.random() * (347 - 325 + 1)) + 325;
 }
 
+
 setInterval(channel_val, TIMEOUT);
 
-setInterval(key_to_signal, 100);
+setInterval(key_to_signal, TIMEOUT);
 
 global.rxbuf = '';
 
@@ -809,6 +810,7 @@ lib_mqtt_connect('localhost', 1883);
 
 let control_topic = '/MUV/control/' + lib.name + '/' + lib.control[0]
 let data_topic = '/MUV/data/' + lib.name + '/' + lib.data[0]
+
 function lib_mqtt_connect(broker_ip, port) {
     if (lib_mqtt_client == null) {
         var connectOptions = {
