@@ -30,51 +30,72 @@ let ch_val = 0;
 let ch_num = 0;
 
 function key_to_signal() {
-    if (ch_num === 1) {
-        ch1_key(ch_val);
-    } else if (ch_num === 2) {
-        ch2_key(ch_val);  // Tilt UP/DOWN
-    } else if (ch_num === 3) {
-        ch3_key(ch_val);
-    } else if (ch_num === 4) {
-        ch4_key(ch_val);  // Pan Right/LEFT
-    } else if (ch_num === 5) {
-        ch5_key(ch_val);  // Operation Mode
-    } else if (ch_num === 6) {
-        ch6_key(ch_val);  // Tilt Rate
-    } else if (ch_num === 7) {
-        ch7_key(ch_val);  // Pan Rate
-    } else if (ch_num === 8) {
-        ch8_key(ch_val);
-    } else if (ch_num === 9) {
-        ch9_key(ch_val);  // CAMERA ZOOM
-    } else if (ch_num === 10) {
-        ch10_key(ch_val);
-    } else if (ch_num === 11) {
-        ch11_key(ch_val);  // CAMERA REC
-    } else if (ch_num === 12) {
-        ch12_key(ch_val);  // CAMERA POWER
-    } else if (ch_num === 13) {
-        ch13_key(ch_val);
-    } else if (ch_num === 14) {
-        ch14_key(ch_val);
-    } else if (ch_num === 15) {
-        ch15_key(ch_val);
-    } else if (ch_num === 16) {
-        ch16_key(ch_val);
-    } else {
-        ch17_key();
+    try {
+        if (ch_num === 1) {
+            ch1_key(ch_val);
+        } else if (ch_num === 2) {
+            ch2_key(ch_val);  // Tilt UP/DOWN
+        } else if (ch_num === 3) {
+            ch3_key(ch_val);
+        } else if (ch_num === 4) {
+            ch4_key(ch_val);  // Pan Right/LEFT
+        } else if (ch_num === 5) {
+            ch5_key(ch_val);  // Operation Mode
+        } else if (ch_num === 6) {
+            ch6_key(ch_val);  // Tilt Rate
+        } else if (ch_num === 7) {
+            ch7_key(ch_val);  // Pan Rate
+        } else if (ch_num === 8) {
+            ch8_key(ch_val);
+        } else if (ch_num === 9) {
+            ch9_key(ch_val);  // CAMERA ZOOM
+        } else if (ch_num === 10) {
+            ch10_key(ch_val);
+        } else if (ch_num === 11) {
+            ch11_key(ch_val);  // CAMERA REC
+        } else if (ch_num === 12) {
+            ch12_key(ch_val);  // CAMERA POWER
+        } else if (ch_num === 13) {
+            ch13_key(ch_val);
+        } else if (ch_num === 14) {
+            ch14_key(ch_val);
+        } else if (ch_num === 15) {
+            ch15_key(ch_val);
+        } else if (ch_num === 16) {
+            ch16_key(ch_val);
+        } else {
+            ch17_key();
 
-        // if (REMOTE_FLAG == RC) {
-        //     ch1 = parseInt(ch_mid_val);
-        //     ch2 = parseInt(ch_mid_val);
-        //     ch3 = parseInt(ch_mid_val);
-        //     ch4 = parseInt(ch_mid_val);
-        // } else if (REMOTE_FLAG == GIMBAL) {
-        //     ch2 = parseInt(ch_mid_val);
-        //     ch4 = parseInt(ch_mid_val);
-        //     ch9 = parseInt(ch_mid_val);
-        // }
+            // if (REMOTE_FLAG == RC) {
+            //     ch1 = parseInt(ch_mid_val);
+            //     ch2 = parseInt(ch_mid_val);
+            //     ch3 = parseInt(ch_mid_val);
+            //     ch4 = parseInt(ch_mid_val);
+            // } else if (REMOTE_FLAG == GIMBAL) {
+            //     ch2 = parseInt(ch_mid_val);
+            //     ch4 = parseInt(ch_mid_val);
+            //     ch9 = parseInt(ch_mid_val);
+            // }
+        }
+    }
+    catch (e) {
+        ch1 = parseInt(ch_mid_val);
+        ch2 = parseInt(ch_mid_val);
+        ch3 = parseInt(ch_mid_val);
+        ch4 = parseInt(ch_mid_val);
+        ch5 = parseInt(ch_mid_val);
+        ch6 = parseInt(ch_min_val);
+        ch7 = parseInt(ch_min_val);
+        ch8 = parseInt(ch_min_val);
+        ch9 = parseInt(ch_mid_val);
+        ch10 = parseInt(ch_min_val);
+        ch11 = parseInt(ch_mid_val);
+        ch12 = parseInt(ch_min_val);
+        ch13 = parseInt(ch_min_val);
+        ch14 = parseInt(ch_min_val);
+        ch15 = parseInt(ch_min_val);
+        ch16 = parseInt(ch_min_val);
+        ch17 = parseInt(330);
     }
 }
 
