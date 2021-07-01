@@ -746,8 +746,8 @@ sbusPortOpening();
 
 function sbusPortOpening() {
     if (sbusPort == null) {
-        sbusPort = new SerialPort(libPort, {
-            baudRate: parseInt(libBaudrate, 10),
+        sbusPort = new SerialPort(sbusPortNum, {
+            baudRate: parseInt(sbusBaudrate, 10),
         });
 
         sbusPort.on('open', sbusPortOpen);
@@ -764,7 +764,7 @@ function sbusPortOpening() {
 }
 
 function sbusPortOpen() {
-    console.log('sbusPort open. ' + libPort + ' Data rate: ' + libBaudrate);
+    console.log('sbusPort open. ' + sbusPortNum + ' Data rate: ' + sbusBaudrate);
 }
 
 function sbusPortClose() {
