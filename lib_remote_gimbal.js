@@ -15,7 +15,7 @@ global.ch_min_val = 223; // 00 DF
 global.ch_mid_val = 1023; // 03 FF
 global.ch_max_val = 1823; // 07 1F
 
-global.ch_gap = 1;
+global.ch_gap = 20;
 // data_range_each_CH = 0~2047
 
 const RC = 0;
@@ -81,7 +81,7 @@ function key_to_signal() {
 function ch1_key(ch_val) {
     if (parseInt(ch1) < parseInt(ch_val)) {
         let ch1_up_interval = setInterval(function () {
-            if (parseInt(ch1) >= parseInt(ch_val)) {
+            if (parseInt(ch1) > parseInt(ch_val)) {
                 clearInterval(ch1_up_interval);
             }
             else {
@@ -91,7 +91,7 @@ function ch1_key(ch_val) {
     }
     else if (parseInt(ch1) > parseInt(ch_val)) {
         let ch1_down_interval = setInterval(function () {
-            if (parseInt(ch1) <= parseInt(ch_val)) {
+            if (parseInt(ch1) < parseInt(ch_val)) {
                 clearInterval(ch1_down_interval);
             }
             else {
@@ -107,7 +107,7 @@ function ch2_key(ch_val) {
     let ch2_interval = setInterval(function () {
         if (parseInt(ch2) < parseInt(ch_val)) {
             let ch2_up_interval = setInterval(function () {
-                if (parseInt(ch2) >= parseInt(ch_val)) {
+                if (parseInt(ch2) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch2_up_interval);
                 } else {
@@ -116,7 +116,7 @@ function ch2_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch2) > parseInt(ch_val)) {
             let ch2_down_interval = setInterval(function () {
-                if (parseInt(ch2) <= parseInt(ch_val)) {
+                if (parseInt(ch2) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch2_down_interval);
                 } else {
@@ -136,7 +136,7 @@ function ch3_key(ch_val) {
     let ch3_interval = setInterval(function () {
         if (parseInt(ch3) < parseInt(ch_val)) {
             let ch3_up_interval = setInterval(function () {
-                if (parseInt(ch3) >= parseInt(ch_val)) {
+                if (parseInt(ch3) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch3_up_interval);
                 } else {
@@ -145,7 +145,7 @@ function ch3_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch3) > parseInt(ch_val)) {
             let ch3_down_interval = setInterval(function () {
-                if (parseInt(ch3) <= parseInt(ch_val)) {
+                if (parseInt(ch3) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch3_down_interval);
                 } else {
@@ -165,7 +165,7 @@ function ch4_key(ch_val) {
     let ch4_interval = setInterval(function () {
         if (parseInt(ch4) < parseInt(ch_val)) {
             let ch4_up_interval = setInterval(function () {
-                if (parseInt(ch4) >= parseInt(ch_val)) {
+                if (parseInt(ch4) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch4_up_interval);
                 } else {
@@ -174,7 +174,7 @@ function ch4_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch4) > parseInt(ch_val)) {
             let ch4_down_interval = setInterval(function () {
-                if (parseInt(ch4) <= parseInt(ch_val)) {
+                if (parseInt(ch4) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch4_down_interval);
                 } else {
@@ -194,7 +194,7 @@ function ch5_key(ch_val) {
     let ch5_interval = setInterval(function () {
         if (parseInt(ch5) < parseInt(ch_val)) {
             let ch5_up_interval = setInterval(function () {
-                if (parseInt(ch5) >= parseInt(ch_val)) {
+                if (parseInt(ch5) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch5_up_interval);
                 } else {
@@ -203,7 +203,7 @@ function ch5_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch5) > parseInt(ch_val)) {
             let ch5_down_interval = setInterval(function () {
-                if (parseInt(ch5) <= parseInt(ch_val)) {
+                if (parseInt(ch5) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch5_down_interval);
                 } else {
@@ -223,7 +223,7 @@ function ch6_key(ch_val) {
     let ch6_interval = setInterval(function () {
         if (parseInt(ch6) < parseInt(ch_val)) {
             let ch6_up_interval = setInterval(function () {
-                if (parseInt(ch6) >= parseInt(ch_val)) {
+                if (parseInt(ch6) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch6_up_interval);
                 } else {
@@ -232,7 +232,7 @@ function ch6_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch6) > parseInt(ch_val)) {
             let ch6_down_interval = setInterval(function () {
-                if (parseInt(ch6) <= parseInt(ch_val)) {
+                if (parseInt(ch6) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch6_down_interval);
                 } else {
@@ -252,7 +252,7 @@ function ch7_key(ch_val) {
     let ch7_interval = setInterval(function () {
         if (parseInt(ch7) < parseInt(ch_val)) {
             let ch7_up_interval = setInterval(function () {
-                if (parseInt(ch7) >= parseInt(ch_val)) {
+                if (parseInt(ch7) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch7_up_interval);
                 } else {
@@ -261,7 +261,7 @@ function ch7_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch7) > parseInt(ch_val)) {
             let ch7_down_interval = setInterval(function () {
-                if (parseInt(ch7) <= parseInt(ch_val)) {
+                if (parseInt(ch7) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch7_down_interval);
                 } else {
@@ -281,7 +281,7 @@ function ch8_key(ch_val) {
     let ch8_interval = setInterval(function () {
         if (parseInt(ch8) < parseInt(ch_val)) {
             let ch8_up_interval = setInterval(function () {
-                if (parseInt(ch8) >= parseInt(ch_val)) {
+                if (parseInt(ch8) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch8_up_interval);
                 } else {
@@ -290,7 +290,7 @@ function ch8_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch8) > parseInt(ch_val)) {
             let ch8_down_interval = setInterval(function () {
-                if (parseInt(ch8) <= parseInt(ch_val)) {
+                if (parseInt(ch8) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch8_down_interval);
                 } else {
@@ -310,7 +310,7 @@ function ch9_key(ch_val) {
     let ch9_interval = setInterval(function () {
         if (parseInt(ch9) < parseInt(ch_val)) {
             let ch9_up_interval = setInterval(function () {
-                if (parseInt(ch9) >= parseInt(ch_val)) {
+                if (parseInt(ch9) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch9_up_interval);
                 } else {
@@ -319,7 +319,7 @@ function ch9_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch9) > parseInt(ch_val)) {
             let ch9_down_interval = setInterval(function () {
-                if (parseInt(ch9) <= parseInt(ch_val)) {
+                if (parseInt(ch9) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch9_down_interval);
                 } else {
@@ -339,7 +339,7 @@ function ch10_key(ch_val) {
     let ch10_interval = setInterval(function () {
         if (parseInt(ch10) < parseInt(ch_val)) {
             let ch10_up_interval = setInterval(function () {
-                if (parseInt(ch10) >= parseInt(ch_val)) {
+                if (parseInt(ch10) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch10_up_interval);
                 } else {
@@ -348,7 +348,7 @@ function ch10_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch10) > parseInt(ch_val)) {
             let ch10_down_interval = setInterval(function () {
-                if (parseInt(ch10) <= parseInt(ch_val)) {
+                if (parseInt(ch10) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch10_down_interval);
                 } else {
@@ -368,7 +368,7 @@ function ch11_key(ch_val) {
     let ch11_interval = setInterval(function () {
         if (parseInt(ch11) < parseInt(ch_val)) {
             let ch11_up_interval = setInterval(function () {
-                if (parseInt(ch11) >= parseInt(ch_val)) {
+                if (parseInt(ch11) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch11_up_interval);
                 } else {
@@ -377,7 +377,7 @@ function ch11_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch11) > parseInt(ch_val)) {
             let ch11_down_interval = setInterval(function () {
-                if (parseInt(ch11) <= parseInt(ch_val)) {
+                if (parseInt(ch11) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch11_down_interval);
                 } else {
@@ -397,7 +397,7 @@ function ch12_key(ch_val) {
     let ch12_interval = setInterval(function () {
         if (parseInt(ch12) < parseInt(ch_val)) {
             let ch12_up_interval = setInterval(function () {
-                if (parseInt(ch12) >= parseInt(ch_val)) {
+                if (parseInt(ch12) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch12_up_interval);
                 } else {
@@ -406,7 +406,7 @@ function ch12_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch12) > parseInt(ch_val)) {
             let ch12_down_interval = setInterval(function () {
-                if (parseInt(ch12) <= parseInt(ch_val)) {
+                if (parseInt(ch12) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch12_down_interval);
                 } else {
@@ -426,7 +426,7 @@ function ch13_key(ch_val) {
     let ch13_interval = setInterval(function () {
         if (parseInt(ch13) < parseInt(ch_val)) {
             let ch13_up_interval = setInterval(function () {
-                if (parseInt(ch13) >= parseInt(ch_val)) {
+                if (parseInt(ch13) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch13_up_interval);
                 } else {
@@ -435,7 +435,7 @@ function ch13_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch13) > parseInt(ch_val)) {
             let ch13_down_interval = setInterval(function () {
-                if (parseInt(ch13) <= parseInt(ch_val)) {
+                if (parseInt(ch13) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch13_down_interval);
                 } else {
@@ -455,7 +455,7 @@ function ch14_key(ch_val) {
     let ch14_interval = setInterval(function () {
         if (parseInt(ch14) < parseInt(ch_val)) {
             let ch14_up_interval = setInterval(function () {
-                if (parseInt(ch14) >= parseInt(ch_val)) {
+                if (parseInt(ch14) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch14_up_interval);
                 } else {
@@ -464,7 +464,7 @@ function ch14_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch14) > parseInt(ch_val)) {
             let ch14_down_interval = setInterval(function () {
-                if (parseInt(ch14) <= parseInt(ch_val)) {
+                if (parseInt(ch14) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch14_down_interval);
                 } else {
@@ -484,7 +484,7 @@ function ch15_key(ch_val) {
     let ch15_interval = setInterval(function () {
         if (parseInt(ch15) < parseInt(ch_val)) {
             let ch15_up_interval = setInterval(function () {
-                if (parseInt(ch15) >= parseInt(ch_val)) {
+                if (parseInt(ch15) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch15_up_interval);
                 } else {
@@ -493,7 +493,7 @@ function ch15_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch15) > parseInt(ch_val)) {
             let ch15_down_interval = setInterval(function () {
-                if (parseInt(ch15) <= parseInt(ch_val)) {
+                if (parseInt(ch15) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch15_down_interval);
                 } else {
@@ -513,7 +513,7 @@ function ch16_key(ch_val) {
     let ch16_interval = setInterval(function () {
         if (parseInt(ch16) < parseInt(ch_val)) {
             let ch16_up_interval = setInterval(function () {
-                if (parseInt(ch16) >= parseInt(ch_val)) {
+                if (parseInt(ch16) > parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch16_up_interval);
                 } else {
@@ -522,7 +522,7 @@ function ch16_key(ch_val) {
             }, VALUE_CHANGE_TIMEOUT);
         } else if (parseInt(ch16) > parseInt(ch_val)) {
             let ch16_down_interval = setInterval(function () {
-                if (parseInt(ch16) <= parseInt(ch_val)) {
+                if (parseInt(ch16) < parseInt(ch_val)) {
                     ch_num = 0;
                     clearInterval(ch16_down_interval);
                 } else {
@@ -695,7 +695,7 @@ function channel_val() {
     checksum_extra();
     // rxbuf += '00';
     // console.log(rxbuf);
-    // console.log(Buffer.from(rxbuf, 'hex'));
+    console.log(Buffer.from(rxbuf, 'hex'));
     sbusPort.write(Buffer.from(rxbuf, 'hex'))
     sbusData();
 }
@@ -839,8 +839,8 @@ function lib_mqtt_connect(broker_ip, port) {
         if (topic === control_topic) {
             let obj_lib_data = JSON.parse(message);
 
-            ch_num = parseInt(obj_lib_data.ch_num);
-            ch_val = parseInt(obj_lib_data.ch_val);
+            ch_num = parseInt(obj_lib_data.num);
+            ch_val = parseInt(obj_lib_data.value);
         }
     });
 
