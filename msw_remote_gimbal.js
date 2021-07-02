@@ -78,7 +78,7 @@ msw_sub_fc_topic.push('/Mobius/' + config.gcs + '/Drone_Data/' + config.drone + 
 let msw_sub_lib_topic = [];
 let noti_topic = [];
 let control_name = config.lib[0].control[0];
-noti_topic.push('/Mobius/' + config.gcs + '/Mission_Data/' + config.drone + '/' + config.name + '/_' + config.name + '/' + control_name);
+noti_topic.push('/Mobius/' + config.gcs + '/Mission_Data/' + config.drone + '/' + config.name + '/' + control_name);
 
 function init() {
     if(config.lib.length > 0) {
