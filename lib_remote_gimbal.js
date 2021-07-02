@@ -639,7 +639,9 @@ function channel_val() {
     } else if (parseInt(ch11) > parseInt(ch11_target_val)) {
         ch11 = parseInt(ch11) - ch_gap;
     }
-    hex_ch11 = ch11.toString(16);
+    else{
+        ch12 = parseInt(ch12_target_val);
+    }    hex_ch11 = ch11.toString(16);
     hex_ch11 = hex_ch11.padStart(4, '0');
     let ch11_high_byte = hex_ch11.substr(0, 2);
     let ch11_low_byte = hex_ch11.substr(2, 2);
@@ -650,6 +652,9 @@ function channel_val() {
         ch12 = parseInt(ch12) + ch_gap;
     } else if (parseInt(ch12) > parseInt(ch12_target_val)) {
         ch12 = parseInt(ch12) - ch_gap;
+    }
+    else{
+        ch12 = parseInt(ch12_target_val);
     }
     hex_ch12 = ch12.toString(16);
     hex_ch12 = hex_ch12.padStart(4, '0');
