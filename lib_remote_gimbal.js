@@ -67,7 +67,7 @@ function key_to_signal(ch_num, ch_val) {
             ch11 = ch_val;
             // ch11_key(ch_val);  // CAMERA REC
         } else if (ch_num === 12) {
-            ch12 = ch_val;
+            // ch12 = ch_val;
             // ch12_key(ch_val);  // CAMERA POWER
         } else if (ch_num === 13) {
             ch13 = ch_val;
