@@ -34,52 +34,52 @@ let ch_val = 0;  // Target value
 function key_to_signal(ch_num, ch_val) {
     try {
         if (ch_num === 1) {
-            ch1 = ch_val;
+            ch1_target_val = ch_val;
             // ch1_key(ch_val);
         } else if (ch_num === 2) {
-            ch2 = ch_val;
+            ch2_target_val = ch_val;
             // ch2_key(ch_val);  // Tilt UP/DOWN
         } else if (ch_num === 3) {
-            ch3 = ch_val;
+            ch3_target_val = ch_val;
             // ch3_key(ch_val);
         } else if (ch_num === 4) {
-            ch4 = ch_val;
+            ch4_target_val = ch_val;
             ch4_key(ch_val);  // Pan Right/LEFT
         } else if (ch_num === 5) {
-            ch5 = ch_val;
+            ch5_target_val = ch_val;
             // ch5_key(ch_val);  // Operation Mode
         } else if (ch_num === 6) {
-            ch6 = ch_val;
+            ch6_target_val = ch_val;
             // ch6_key(ch_val);  // Tilt Rate
         } else if (ch_num === 7) {
-            ch7 = ch_val;
+            ch7_target_val = ch_val;
             // ch7_key(ch_val);  // Pan Rate
         } else if (ch_num === 8) {
-            ch8 = ch_val;
+            ch8_target_val = ch_val;
             // ch8_key(ch_val);
         } else if (ch_num === 9) {
-            ch9 = ch_val;
+            ch9_target_val = ch_val;
             // ch9_key(ch_val);  // CAMERA ZOOM
         } else if (ch_num === 10) {
-            ch10 = ch_val;
+            ch10_target_val = ch_val;
             // ch10_key(ch_val);
         } else if (ch_num === 11) {
-            ch11 = ch_val;
+            ch11_target_val = ch_val;
             // ch11_key(ch_val);  // CAMERA REC
         } else if (ch_num === 12) {
-            // ch12 = ch_val;
+            // ch12_target_val = ch_val;
             // ch12_key(ch_val);  // CAMERA POWER
         } else if (ch_num === 13) {
-            ch13 = ch_val;
+            ch13_target_val = ch_val;
             // ch13_key(ch_val);
         } else if (ch_num === 14) {
-            ch14 = ch_val;
+            ch14_target_val = ch_val;
             // ch14_key(ch_val);
         } else if (ch_num === 15) {
-            ch15 = ch_val;
+            ch15_target_val = ch_val;
             // ch15_key(ch_val);
         } else if (ch_num === 16) {
-            ch16 = ch_val;
+            ch16_target_val = ch_val;
             // ch16_key(ch_val);
         } else {
             ch17_key();
@@ -529,6 +529,24 @@ global.ch15 = parseInt(ch_min_val);
 global.ch16 = parseInt(ch_min_val);
 global.ch17 = parseInt(330);
 
+global.ch1_target_val = parseInt(ch_mid_val);
+global.ch2_target_val = parseInt(ch_mid_val);
+global.ch3_target_val = parseInt(ch_mid_val);
+global.ch4_target_val = parseInt(ch_mid_val);
+global.ch5_target_val = parseInt(ch_mid_val);
+global.ch6_target_val = parseInt(ch_min_val);
+global.ch7_target_val = parseInt(ch_min_val);
+global.ch8_target_val = parseInt(ch_min_val);
+global.ch9_target_val = parseInt(ch_mid_val);
+global.ch10_target_val = parseInt(ch_min_val);
+global.ch11_target_val = parseInt(ch_mid_val);
+global.ch12_target_val = parseInt(ch_min_val);
+global.ch13_target_val = parseInt(ch_min_val);
+global.ch14_target_val = parseInt(ch_min_val);
+global.ch15_target_val = parseInt(ch_min_val);
+global.ch16_target_val = parseInt(ch_min_val);
+global.ch17_target_val = parseInt(330);
+
 function channel_val() {
     // console.log('ch1: ', ch1, 'ch2: ', ch2, 'ch3: ', ch3, 'ch4: ', ch4);
 
@@ -543,6 +561,11 @@ function channel_val() {
     rxbuf += ch1_high_byte;
     rxbuf += ch1_low_byte;
     // CH2 - Pitch
+    if (parseInt(ch2) < parseInt(ch2_target_val)) {
+        ch2 = parseInt(ch2) + ch_gap;
+    } else if (parseInt(ch2) > parseInt(ch2_target_val)) {
+        ch2 = parseInt(ch2) - ch_gap;
+    }
     hex_ch2 = ch2.toString(16);
     hex_ch2 = hex_ch2.padStart(4, '0');
     let ch2_high_byte = hex_ch2.substr(0, 2);
@@ -557,6 +580,11 @@ function channel_val() {
     rxbuf += ch3_high_byte;
     rxbuf += ch3_low_byte;
     // CH4 - Yaw
+    if (parseInt(ch4) < parseInt(ch4_target_val)) {
+        ch4 = parseInt(ch4) + ch_gap;
+    } else if (parseInt(ch4) > parseInt(ch4_target_val)) {
+        ch4 = parseInt(ch4) - ch_gap;
+    }
     hex_ch4 = ch4.toString(16);
     hex_ch4 = hex_ch4.padStart(4, '0');
     let ch4_high_byte = hex_ch4.substr(0, 2);
@@ -606,6 +634,11 @@ function channel_val() {
     rxbuf += ch10_high_byte;
     rxbuf += ch10_low_byte;
     // Switch 7
+    if (parseInt(ch11) < parseInt(ch11_target_val)) {
+        ch11 = parseInt(ch11) + ch_gap;
+    } else if (parseInt(ch11) > parseInt(ch11_target_val)) {
+        ch11 = parseInt(ch11) - ch_gap;
+    }
     hex_ch11 = ch11.toString(16);
     hex_ch11 = hex_ch11.padStart(4, '0');
     let ch11_high_byte = hex_ch11.substr(0, 2);
@@ -613,9 +646,9 @@ function channel_val() {
     rxbuf += ch11_high_byte;
     rxbuf += ch11_low_byte;
     // Switch 8
-    if (parseInt(ch12) < parseInt(ch_val)) {
+    if (parseInt(ch12) < parseInt(ch12_target_val)) {
         ch12 = parseInt(ch12) + ch_gap;
-    } else if (parseInt(ch12) > parseInt(ch_val)) {
+    } else if (parseInt(ch12) > parseInt(ch12_target_val)) {
         ch12 = parseInt(ch12) - ch_gap;
     }
     hex_ch12 = ch12.toString(16);
