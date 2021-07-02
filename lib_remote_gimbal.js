@@ -24,12 +24,6 @@ const GIMBAL = 1;
 global.REMOTE_FLAG = GIMBAL;
 
 let TIMEOUT = 50;
-let VALUE_CHANGE_TIMEOUT = 20;
-
-let TOLERANCE = 5;
-
-let ch_num = 0;
-let ch_val = 0;  // Target value
 
 function key_to_signal(ch_num, ch_val) {
     try {
@@ -84,12 +78,12 @@ function key_to_signal(ch_num, ch_val) {
         } else {
             ch17_key();
 
-            if (REMOTE_FLAG == RC) {
+            if (REMOTE_FLAG === RC) {
                 ch1 = parseInt(ch_mid_val);
                 ch2 = parseInt(ch_mid_val);
                 ch3 = parseInt(ch_mid_val);
                 ch4 = parseInt(ch_mid_val);
-            } else if (REMOTE_FLAG == GIMBAL) {
+            } else if (REMOTE_FLAG === GIMBAL) {
                 ch2 = parseInt(ch_mid_val);
                 ch4 = parseInt(ch_mid_val);
                 ch9 = parseInt(ch_mid_val);
@@ -116,389 +110,6 @@ function key_to_signal(ch_num, ch_val) {
     }
 }
 
-function ch1_key(ch_val) {
-    if (parseInt(ch1) < parseInt(ch_val)) {
-        let ch1_up_interval = setInterval(function () {
-            if (parseInt(ch1) < parseInt(ch_val)) {
-                ch1 = parseInt(ch1) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch1_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch1) > parseInt(ch_val)) {
-        let ch1_down_interval = setInterval(function () {
-            if (parseInt(ch1) > parseInt(ch_val)) {
-                ch1 = parseInt(ch1) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch1_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch2_key(ch_val) {
-    if (parseInt(ch2) < parseInt(ch_val)) {
-        let ch2_up_interval = setInterval(function () {
-            if (parseInt(ch2) < parseInt(ch_val)) {
-                ch2 = parseInt(ch2) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch2_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch2) > parseInt(ch_val)) {
-        let ch2_down_interval = setInterval(function () {
-            if (parseInt(ch2) > parseInt(ch_val)) {
-                ch2 = parseInt(ch2) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch2_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch3_key(ch_val) {
-    if (parseInt(ch3) < parseInt(ch_val)) {
-        let ch3_up_interval = setInterval(function () {
-            if (parseInt(ch3) < parseInt(ch_val)) {
-                ch3 = parseInt(ch3) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch3_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch3) > parseInt(ch_val)) {
-        let ch3_down_interval = setInterval(function () {
-            if (parseInt(ch3) > parseInt(ch_val)) {
-                ch3 = parseInt(ch3) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch3_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch4_key(ch_val) {
-    if (parseInt(ch4) < parseInt(ch_val)) {
-        let ch4_up_interval = setInterval(function () {
-            if (parseInt(ch4) < parseInt(ch_val)) {
-                ch4 = parseInt(ch4) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch4_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch4) > parseInt(ch_val)) {
-        let ch4_down_interval = setInterval(function () {
-            if (parseInt(ch4) > parseInt(ch_val)) {
-                ch4 = parseInt(ch4) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch4_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-// Operation Mode
-function ch5_key(ch_val) {
-    if (parseInt(ch5) < parseInt(ch_val)) {
-        let ch5_up_interval = setInterval(function () {
-            if (parseInt(ch5) < parseInt(ch_val)) {
-                ch5 = parseInt(ch5) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch5_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch5) > parseInt(ch_val)) {
-        let ch5_down_interval = setInterval(function () {
-            if (parseInt(ch5) > parseInt(ch_val)) {
-                ch5 = parseInt(ch5) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch5_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch6_key(ch_val) {
-    if (parseInt(ch6) < parseInt(ch_val)) {
-        let ch6_up_interval = setInterval(function () {
-            if (parseInt(ch6) < parseInt(ch_val)) {
-                ch6 = parseInt(ch6) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch6_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch6) > parseInt(ch_val)) {
-        let ch6_down_interval = setInterval(function () {
-            if (parseInt(ch6) > parseInt(ch_val)) {
-                ch6 = parseInt(ch6) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch6_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch7_key(ch_val) {
-    if (parseInt(ch7) < parseInt(ch_val)) {
-        let ch7_up_interval = setInterval(function () {
-            if (parseInt(ch7) < parseInt(ch_val)) {
-                ch7 = parseInt(ch7) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch7_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch7) > parseInt(ch_val)) {
-        let ch7_down_interval = setInterval(function () {
-            if (parseInt(ch7) > parseInt(ch_val)) {
-                ch7 = parseInt(ch7) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch7_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch8_key(ch_val) {
-    if (parseInt(ch8) < parseInt(ch_val)) {
-        let ch8_up_interval = setInterval(function () {
-            if (parseInt(ch8) < parseInt(ch_val)) {
-                ch8 = parseInt(ch8) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch8_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch8) > parseInt(ch_val)) {
-        let ch8_down_interval = setInterval(function () {
-            if (parseInt(ch8) > parseInt(ch_val)) {
-                ch8 = parseInt(ch8) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch8_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-// Camera Zoom
-function ch9_key(ch_val) {
-    if (parseInt(ch9) < parseInt(ch_val)) {
-        let ch9_up_interval = setInterval(function () {
-            if (parseInt(ch9) < parseInt(ch_val)) {
-                ch9 = parseInt(ch9) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch9_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch9) > parseInt(ch_val)) {
-        let ch9_down_interval = setInterval(function () {
-            if (parseInt(ch9) > parseInt(ch_val)) {
-                ch9 = parseInt(ch9) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch9_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-// Camera Focus
-function ch10_key(ch_val) {
-    if (parseInt(ch10) < parseInt(ch_val)) {
-        let ch10_up_interval = setInterval(function () {
-            if (parseInt(ch10) < parseInt(ch_val)) {
-                ch10 = parseInt(ch10) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch10_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch10) > parseInt(ch_val)) {
-        let ch10_down_interval = setInterval(function () {
-            if (parseInt(ch10) > parseInt(ch_val)) {
-                ch10 = parseInt(ch10) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch10_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-// Camera REC
-function ch11_key(ch_val) {
-    if (parseInt(ch11) < parseInt(ch_val)) {
-        let ch11_up_interval = setInterval(function () {
-            if (parseInt(ch11) < parseInt(ch_val)) {
-                ch11 = parseInt(ch11) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch11_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch11) > parseInt(ch_val)) {
-        let ch11_down_interval = setInterval(function () {
-            if (parseInt(ch11) > parseInt(ch_val)) {
-                ch11 = parseInt(ch11) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch11_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-// CAMERA_POWER
-function ch12_key(ch_val) {
-    if (parseInt(ch12) < parseInt(ch_val)) {
-        ch12 = parseInt(ch12) + ch_gap;
-    } else if (parseInt(ch12) > parseInt(ch_val)) {
-        ch12 = parseInt(ch12) - ch_gap;
-    }
-}
-
-
-function ch13_key(ch_val) {
-    if (parseInt(ch13) < parseInt(ch_val)) {
-        let ch13_up_interval = setInterval(function () {
-            if (parseInt(ch13) < parseInt(ch_val)) {
-                ch13 = parseInt(ch13) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch13_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch13) > parseInt(ch_val)) {
-        let ch13_down_interval = setInterval(function () {
-            if (parseInt(ch13) > parseInt(ch_val)) {
-                ch13 = parseInt(ch13) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch13_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch14_key(ch_val) {
-    if (parseInt(ch14) < parseInt(ch_val)) {
-        let ch14_up_interval = setInterval(function () {
-            if (parseInt(ch14) < parseInt(ch_val)) {
-                ch14 = parseInt(ch14) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch14_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch14) > parseInt(ch_val)) {
-        let ch14_down_interval = setInterval(function () {
-            if (parseInt(ch14) > parseInt(ch_val)) {
-                ch14 = parseInt(ch14) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch14_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch15_key(ch_val) {
-    if (parseInt(ch15) < parseInt(ch_val)) {
-        let ch15_up_interval = setInterval(function () {
-            if (parseInt(ch15) < parseInt(ch_val)) {
-                ch15 = parseInt(ch15) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch15_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch15) > parseInt(ch_val)) {
-        let ch15_down_interval = setInterval(function () {
-            if (parseInt(ch15) > parseInt(ch_val)) {
-                ch15 = parseInt(ch15) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch15_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
-
-function ch16_key(ch_val) {
-    if (parseInt(ch16) < parseInt(ch_val)) {
-        let ch16_up_interval = setInterval(function () {
-            if (parseInt(ch16) < parseInt(ch_val)) {
-                ch16 = parseInt(ch16) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch16_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch16) > parseInt(ch_val)) {
-        let ch16_down_interval = setInterval(function () {
-            if (parseInt(ch16) > parseInt(ch_val)) {
-                ch16 = parseInt(ch16) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch16_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
-    }
-}
-
 
 function ch17_key() {
     ch17 = Math.floor(Math.random() * (347 - 325 + 1)) + 325;
@@ -507,7 +118,6 @@ function ch17_key() {
 
 setInterval(channel_val, TIMEOUT);
 
-//setInterval(key_to_signal, TIMEOUT);
 
 global.rxbuf = '';
 
@@ -970,7 +580,7 @@ function sbusPortClose() {
 function sbusPortError(error) {
     let error_str = error.toString();
     console.log('[sbusPort error]: ' + error.message);
-    if (error_str.substring(0, 14) == "Error: Opening") {
+    if (error_str.substring(0, 14) === "Error: Opening") {
 
     } else {
         console.log('sbusPort error : ' + error);
@@ -984,7 +594,8 @@ function sbusPortData(data) {
 }
 
 
-let lib = {};
+let lib;
+
 try {
     lib = JSON.parse(fs.readFileSync('./' + config.directory_name + '/lib_sparrow_gun.json', 'utf8'));
 } catch (e) {
