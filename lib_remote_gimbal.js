@@ -23,7 +23,7 @@ const GIMBAL = 1;
 
 global.REMOTE_FLAG = GIMBAL;
 
-let TIMEOUT = 100;
+let TIMEOUT = 50;
 let VALUE_CHANGE_TIMEOUT = 20;
 
 let TOLERANCE = 5;
