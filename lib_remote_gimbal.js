@@ -64,8 +64,8 @@ function key_to_signal(ch_num, ch_val) {
             ch11 = ch_val;
             // ch11_key(ch_val);  // CAMERA REC
         } else if (ch_num === 12) {
-            ch12 = ch_val;
-            // ch12_key(ch_val);  // CAMERA POWER
+            // ch12 = ch_val;
+            ch12_key(ch_val);  // CAMERA POWER
         } else if (ch_num === 13) {
             ch13 = ch_val;
             // ch13_key(ch_val);
@@ -389,26 +389,10 @@ function ch11_key(ch_val) {
 
 // CAMERA_POWER
 function ch12_key(ch_val) {
-    if (parseInt(ch12) <= parseInt(ch_val)) {
-        let ch12_up_interval = setInterval(function () {
-            if (parseInt(ch12) < parseInt(ch_val)) {
-                ch12 = parseInt(ch12) + ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch12_up_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else if (parseInt(ch12) >= parseInt(ch_val)) {
-        let ch12_down_interval = setInterval(function () {
-            if (parseInt(ch12) > parseInt(ch_val)) {
-                ch12 = parseInt(ch12) - ch_gap;
-            } else {
-                ch_num = 0;
-                clearInterval(ch12_down_interval);
-            }
-        }, VALUE_CHANGE_TIMEOUT);
-    } else {
-        ch_num = 0;
+    if (parseInt(ch12) < parseInt(ch_val)) {
+        ch12 = parseInt(ch12) + ch_gap;
+    } else if (parseInt(ch12) > parseInt(ch_val)) {
+        ch12 = parseInt(ch12) - ch_gap;
     }
 }
 
