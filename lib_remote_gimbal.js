@@ -610,6 +610,11 @@ function channel_val() {
     rxbuf += ch11_high_byte;
     rxbuf += ch11_low_byte;
     // Switch 8
+    if (parseInt(ch12) < parseInt(ch_val)) {
+        ch12 = parseInt(ch12) + ch_gap;
+    } else if (parseInt(ch12) > parseInt(ch_val)) {
+        ch12 = parseInt(ch12) - ch_gap;
+    }
     hex_ch12 = ch12.toString(16);
     hex_ch12 = hex_ch12.padStart(4, '0');
     let ch12_high_byte = hex_ch12.substr(0, 2);
