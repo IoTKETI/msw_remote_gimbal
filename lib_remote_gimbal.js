@@ -28,6 +28,9 @@ let VALUE_CHANGE_TIMEOUT = 20;
 
 let TOLERANCE = 5;
 
+let ch_num = 0;
+let ch_val = 0;  // Target value
+
 function key_to_signal(ch_num, ch_val) {
     try {
         if (ch_num === 1) {
@@ -64,8 +67,8 @@ function key_to_signal(ch_num, ch_val) {
             ch11 = ch_val;
             // ch11_key(ch_val);  // CAMERA REC
         } else if (ch_num === 12) {
-            // ch12 = ch_val;
-            ch12_key(ch_val);  // CAMERA POWER
+            ch12 = ch_val;
+            // ch12_key(ch_val);  // CAMERA POWER
         } else if (ch_num === 13) {
             ch13 = ch_val;
             // ch13_key(ch_val);
