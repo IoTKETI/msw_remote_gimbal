@@ -67,7 +67,7 @@ function key_to_signal(ch_num, ch_val) {
             ch11_target_val = ch_val;
             // ch11_key(ch_val);  // CAMERA REC
         } else if (ch_num === 12) {
-            // ch12_target_val = ch_val;
+            ch12_target_val = ch_val;
             // ch12_key(ch_val);  // CAMERA POWER
         } else if (ch_num === 13) {
             ch13_target_val = ch_val;
@@ -633,6 +633,8 @@ function channel_val() {
     let ch10_low_byte = hex_ch10.substr(2, 2);
     rxbuf += ch10_high_byte;
     rxbuf += ch10_low_byte;
+
+
     // Switch 7
     if (parseInt(ch11) < parseInt(ch11_target_val)) {
         ch11 = parseInt(ch11) + ch_gap;
@@ -640,20 +642,26 @@ function channel_val() {
         ch11 = parseInt(ch11) - ch_gap;
     }
     else{
-        ch12 = parseInt(ch12_target_val);
-    }    hex_ch11 = ch11.toString(16);
+        ch11 = parseInt(ch12_target_val);
+    }
+
+    hex_ch11 = ch11.toString(16);
     hex_ch11 = hex_ch11.padStart(4, '0');
     let ch11_high_byte = hex_ch11.substr(0, 2);
     let ch11_low_byte = hex_ch11.substr(2, 2);
     rxbuf += ch11_high_byte;
     rxbuf += ch11_low_byte;
+
+
+
     // Switch 8
     if (parseInt(ch12) < parseInt(ch12_target_val)) {
         ch12 = parseInt(ch12) + ch_gap;
-    } else if (parseInt(ch12) > parseInt(ch12_target_val)) {
+    }
+    else if (parseInt(ch12) > parseInt(ch12_target_val)) {
         ch12 = parseInt(ch12) - ch_gap;
     }
-    else{
+    else {
         ch12 = parseInt(ch12_target_val);
     }
     hex_ch12 = ch12.toString(16);
