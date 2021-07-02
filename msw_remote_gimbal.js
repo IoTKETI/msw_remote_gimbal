@@ -303,31 +303,31 @@ function MSW_mobius_mqtt_connect(broker_ip, port) {
         };
 
         MSW_mobius_mqtt_client = mqtt.connect(connectOptions);
-    }
-
-    MSW_mobius_mqtt_client.on('connect', function () {
-        console.log('[msw_mobius_mqtt_connect] connected to ' + broker_ip);
-        for(let idx in noti_topic) {
-            if(noti_topic.hasOwnProperty(idx)) {
-                MSW_mobius_mqtt_client.subscribe(noti_topic[idx]);
-                console.log('[msw_mobius_mqtt_connect] noti_topic[' + idx + ']: ' + noti_topic[idx]);
-            }
-        }
-    });
-
-    MSW_mobius_mqtt_client.on('message', function (topic, message) {
-        for(let idx in noti_topic) {
-            if (noti_topic.hasOwnProperty(idx)) {
-                if(topic == noti_topic[idx]) {
-
-                    setTimeout(on_receive_from_muv, parseInt(Math.random() * 5), topic, message.toString());
-                    break;
+        MSW_mobius_mqtt_client.on('connect', function () {
+            console.log('[msw_mobius_mqtt_connect] connected to ' + broker_ip);
+            for(let idx in noti_topic) {
+                if(noti_topic.hasOwnProperty(idx)) {
+                    MSW_mobius_mqtt_client.subscribe(noti_topic[idx]);
+                    console.log('[msw_mobius_mqtt_connect] noti_topic[' + idx + ']: ' + noti_topic[idx]);
                 }
             }
-        }
-    });
+        });
 
-    MSW_mobius_mqtt_client.on('error', function (err) {
-        console.log(err.message);
-    });
+        MSW_mobius_mqtt_client.on('message', function (topic, message) {
+            for(let idx in noti_topic) {
+                if (noti_topic.hasOwnProperty(idx)) {
+                    if(topic == noti_topic[idx]) {
+
+                        on_receive_from_muv(topic, message.toString());
+                        break;
+                    }
+                }
+            }
+        });
+
+        MSW_mobius_mqtt_client.on('error', function (err) {
+            console.log(err.message);
+        });
+    }
+
 }

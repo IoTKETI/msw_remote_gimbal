@@ -522,7 +522,7 @@ function ch17_key() {
 
 setInterval(channel_val, TIMEOUT);
 
-setInterval(key_to_signal, TIMEOUT);
+//setInterval(key_to_signal, TIMEOUT);
 
 global.rxbuf = '';
 
@@ -817,6 +817,8 @@ function lib_mqtt_connect(broker_ip, port) {
             let obj_lib_data = JSON.parse(message);
             ch_num = parseInt(obj_lib_data.num);
             ch_val = parseInt(obj_lib_data.value);
+
+            key_to_signal();
         }
     });
 
