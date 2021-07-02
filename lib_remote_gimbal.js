@@ -26,43 +26,58 @@ global.REMOTE_FLAG = GIMBAL;
 let TIMEOUT = 100;
 let VALUE_CHANGE_TIMEOUT = 20;
 
-let ch_val = 0;
-let ch_num = 0;
+let TOLERANCE = 5;
 
-function key_to_signal() {
+function key_to_signal(ch_num, ch_val) {
     try {
         if (ch_num === 1) {
-            ch1_key(ch_val);
+            ch1 = ch_val;
+            // ch1_key(ch_val);
         } else if (ch_num === 2) {
-            ch2_key(ch_val);  // Tilt UP/DOWN
+            ch2 = ch_val;
+            // ch2_key(ch_val);  // Tilt UP/DOWN
         } else if (ch_num === 3) {
-            ch3_key(ch_val);
+            ch3 = ch_val;
+            // ch3_key(ch_val);
         } else if (ch_num === 4) {
+            ch4 = ch_val;
             ch4_key(ch_val);  // Pan Right/LEFT
         } else if (ch_num === 5) {
-            ch5_key(ch_val);  // Operation Mode
+            ch5 = ch_val;
+            // ch5_key(ch_val);  // Operation Mode
         } else if (ch_num === 6) {
-            ch6_key(ch_val);  // Tilt Rate
+            ch6 = ch_val;
+            // ch6_key(ch_val);  // Tilt Rate
         } else if (ch_num === 7) {
-            ch7_key(ch_val);  // Pan Rate
+            ch7 = ch_val;
+            // ch7_key(ch_val);  // Pan Rate
         } else if (ch_num === 8) {
-            ch8_key(ch_val);
+            ch8 = ch_val;
+            // ch8_key(ch_val);
         } else if (ch_num === 9) {
-            ch9_key(ch_val);  // CAMERA ZOOM
+            ch9 = ch_val;
+            // ch9_key(ch_val);  // CAMERA ZOOM
         } else if (ch_num === 10) {
-            ch10_key(ch_val);
+            ch10 = ch_val;
+            // ch10_key(ch_val);
         } else if (ch_num === 11) {
-            ch11_key(ch_val);  // CAMERA REC
+            ch11 = ch_val;
+            // ch11_key(ch_val);  // CAMERA REC
         } else if (ch_num === 12) {
-            ch12_key(ch_val);  // CAMERA POWER
+            ch12 = ch_val;
+            // ch12_key(ch_val);  // CAMERA POWER
         } else if (ch_num === 13) {
-            ch13_key(ch_val);
+            ch13 = ch_val;
+            // ch13_key(ch_val);
         } else if (ch_num === 14) {
-            ch14_key(ch_val);
+            ch14 = ch_val;
+            // ch14_key(ch_val);
         } else if (ch_num === 15) {
-            ch15_key(ch_val);
+            ch15 = ch_val;
+            // ch15_key(ch_val);
         } else if (ch_num === 16) {
-            ch16_key(ch_val);
+            ch16 = ch_val;
+            // ch16_key(ch_val);
         } else {
             ch17_key();
 
@@ -77,8 +92,7 @@ function key_to_signal() {
                 ch9 = parseInt(ch_mid_val);
             }
         }
-    }
-    catch (e) {
+    } catch (e) {
         ch1 = parseInt(ch_mid_val);
         ch2 = parseInt(ch_mid_val);
         ch3 = parseInt(ch_mid_val);
@@ -118,8 +132,7 @@ function ch1_key(ch_val) {
                 clearInterval(ch1_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -144,8 +157,7 @@ function ch2_key(ch_val) {
                 clearInterval(ch2_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -170,8 +182,7 @@ function ch3_key(ch_val) {
                 clearInterval(ch3_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -196,8 +207,7 @@ function ch4_key(ch_val) {
                 clearInterval(ch4_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -222,8 +232,7 @@ function ch5_key(ch_val) {
                 clearInterval(ch5_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -248,8 +257,7 @@ function ch6_key(ch_val) {
                 clearInterval(ch6_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -274,8 +282,7 @@ function ch7_key(ch_val) {
                 clearInterval(ch7_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -300,8 +307,7 @@ function ch8_key(ch_val) {
                 clearInterval(ch8_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -326,8 +332,7 @@ function ch9_key(ch_val) {
                 clearInterval(ch9_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -352,8 +357,7 @@ function ch10_key(ch_val) {
                 clearInterval(ch10_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -378,8 +382,7 @@ function ch11_key(ch_val) {
                 clearInterval(ch11_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -404,8 +407,7 @@ function ch12_key(ch_val) {
                 clearInterval(ch12_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -430,8 +432,7 @@ function ch13_key(ch_val) {
                 clearInterval(ch13_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -456,8 +457,7 @@ function ch14_key(ch_val) {
                 clearInterval(ch14_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -482,8 +482,7 @@ function ch15_key(ch_val) {
                 clearInterval(ch15_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -508,8 +507,7 @@ function ch16_key(ch_val) {
                 clearInterval(ch16_down_interval);
             }
         }, VALUE_CHANGE_TIMEOUT);
-    }
-    else {
+    } else {
         ch_num = 0;
     }
 }
@@ -696,7 +694,7 @@ function checksum_extra() {
 }
 
 
-function sbusData () {
+function sbusData() {
     let sbus = {};
     sbus.ch1 = ch1;
     sbus.ch2 = ch2;
@@ -815,10 +813,16 @@ function lib_mqtt_connect(broker_ip, port) {
     lib_mqtt_client.on('message', function (topic, message) {
         if (topic === control_topic) {
             let obj_lib_data = JSON.parse(message);
-            ch_num = parseInt(obj_lib_data.num);
-            ch_val = parseInt(obj_lib_data.value);
-
-            key_to_signal();
+            let ch_num = parseInt(obj_lib_data.num);
+            let ch_val = parseInt(obj_lib_data.value);
+            // if ((ch_mid_val - TOLERANCE) < ch_val < (ch_mid_val + TOLERANCE)) {
+            //     ch_val = 1023;
+            // } else if ((ch_min_val - TOLERANCE) < ch_val < (ch_min_val + TOLERANCE)) {
+            //     ch_val = 223;
+            // } else if ((ch_max_val - TOLERANCE) < ch_val < (ch_max_val + TOLERANCE)) {
+            //     ch_val = 1823;
+            // }
+            key_to_signal(ch_num, ch_val);
         }
     });
 
