@@ -23,7 +23,7 @@ const GIMBAL = 1;
 
 global.REMOTE_FLAG = GIMBAL;
 
-let TIMEOUT = 50;
+let TIMEOUT = 100;
 let VALUE_CHANGE_TIMEOUT = 20;
 
 let TOLERANCE = 5;
@@ -44,7 +44,7 @@ function key_to_signal(ch_num, ch_val) {
             // ch3_key(ch_val);
         } else if (ch_num === 4) {
             ch4_target_val = ch_val;
-            ch4_key(ch_val);  // Pan Right/LEFT
+            // ch4_key(ch_val);  // Pan Right/LEFT
         } else if (ch_num === 5) {
             ch5_target_val = ch_val;
             // ch5_key(ch_val);  // Operation Mode
@@ -553,18 +553,39 @@ function channel_val() {
     rxbuf = '';
     rxbuf += 'C0';
     rxbuf += 'D0';
+
     // CH1 - Roll
+    if (parseInt(ch1) < parseInt(ch1_target_val)) {
+        ch1 = parseInt(ch1) + ch_gap;
+        if (parseInt(ch1) >= parseInt(ch1_target_val)) {
+            ch1 = parseInt(ch1_target_val);
+        }
+    }
+    else if (parseInt(ch1) > parseInt(ch1_target_val)) {
+        ch1 = parseInt(ch1) - ch_gap;
+        if (parseInt(ch1) <= parseInt(ch1_target_val)) {
+            ch1 = parseInt(ch1_target_val);
+        }
+    }
     hex_ch1 = ch1.toString(16);
     hex_ch1 = hex_ch1.padStart(4, '0');
     let ch1_high_byte = hex_ch1.substr(0, 2);
     let ch1_low_byte = hex_ch1.substr(2, 2);
     rxbuf += ch1_high_byte;
     rxbuf += ch1_low_byte;
+
     // CH2 - Pitch
     if (parseInt(ch2) < parseInt(ch2_target_val)) {
         ch2 = parseInt(ch2) + ch_gap;
-    } else if (parseInt(ch2) > parseInt(ch2_target_val)) {
+        if (parseInt(ch2) >= parseInt(ch2_target_val)) {
+            ch2 = parseInt(ch2_target_val);
+        }
+    }
+    else if (parseInt(ch2) > parseInt(ch2_target_val)) {
         ch2 = parseInt(ch2) - ch_gap;
+        if (parseInt(ch2) <= parseInt(ch2_target_val)) {
+            ch2 = parseInt(ch2_target_val);
+        }
     }
     hex_ch2 = ch2.toString(16);
     hex_ch2 = hex_ch2.padStart(4, '0');
@@ -572,18 +593,39 @@ function channel_val() {
     let ch2_low_byte = hex_ch2.substr(2, 2);
     rxbuf += ch2_high_byte;
     rxbuf += ch2_low_byte;
+
     // CH3 - Throttle
+    if (parseInt(ch3) < parseInt(ch3_target_val)) {
+        ch3 = parseInt(ch3) + ch_gap;
+        if (parseInt(ch3) >= parseInt(ch3_target_val)) {
+            ch3 = parseInt(ch3_target_val);
+        }
+    }
+    else if (parseInt(ch3) > parseInt(ch3_target_val)) {
+        ch3 = parseInt(ch3) - ch_gap;
+        if (parseInt(ch3) <= parseInt(ch3_target_val)) {
+            ch3 = parseInt(ch3_target_val);
+        }
+    }
     hex_ch3 = ch3.toString(16);
     hex_ch3 = hex_ch3.padStart(4, '0');
     let ch3_high_byte = hex_ch3.substr(0, 2);
     let ch3_low_byte = hex_ch3.substr(2, 2);
     rxbuf += ch3_high_byte;
     rxbuf += ch3_low_byte;
+
     // CH4 - Yaw
     if (parseInt(ch4) < parseInt(ch4_target_val)) {
         ch4 = parseInt(ch4) + ch_gap;
-    } else if (parseInt(ch4) > parseInt(ch4_target_val)) {
+        if (parseInt(ch4) >= parseInt(ch4_target_val)) {
+            ch4 = parseInt(ch4_target_val);
+        }
+    }
+    else if (parseInt(ch4) > parseInt(ch4_target_val)) {
         ch4 = parseInt(ch4) - ch_gap;
+        if (parseInt(ch4) <= parseInt(ch4_target_val)) {
+            ch4 = parseInt(ch4_target_val);
+        }
     }
     hex_ch4 = ch4.toString(16);
     hex_ch4 = hex_ch4.padStart(4, '0');
@@ -591,28 +633,80 @@ function channel_val() {
     let ch4_low_byte = hex_ch4.substr(2, 2);
     rxbuf += ch4_high_byte;
     rxbuf += ch4_low_byte;
+
     // Switch 1
+    if (parseInt(ch5) < parseInt(ch5_target_val)) {
+        ch5 = parseInt(ch5) + ch_gap;
+        if (parseInt(ch5) >= parseInt(ch5_target_val)) {
+            ch5 = parseInt(ch5_target_val);
+        }
+    }
+    else if (parseInt(ch5) > parseInt(ch5_target_val)) {
+        ch5 = parseInt(ch5) - ch_gap;
+        if (parseInt(ch5) <= parseInt(ch5_target_val)) {
+            ch5 = parseInt(ch5_target_val);
+        }
+    }
     hex_ch5 = ch5.toString(16);
     hex_ch5 = hex_ch5.padStart(4, '0');
     let ch5_high_byte = hex_ch5.substr(0, 2);
     let ch5_low_byte = hex_ch5.substr(2, 2);
     rxbuf += ch5_high_byte;
     rxbuf += ch5_low_byte;
+
     // Switch 2
+    if (parseInt(ch6) < parseInt(ch6_target_val)) {
+        ch6 = parseInt(ch6) + ch_gap;
+        if (parseInt(ch6) >= parseInt(ch6_target_val)) {
+            ch6 = parseInt(ch6_target_val);
+        }
+    }
+    else if (parseInt(ch6) > parseInt(ch6_target_val)) {
+        ch6 = parseInt(ch6) - ch_gap;
+        if (parseInt(ch6) <= parseInt(ch6_target_val)) {
+            ch6 = parseInt(ch6_target_val);
+        }
+    }
     hex_ch6 = ch6.toString(16);
     hex_ch6 = hex_ch6.padStart(4, '0');
     let ch6_high_byte = hex_ch6.substr(0, 2);
     let ch6_low_byte = hex_ch6.substr(2, 2);
     rxbuf += ch6_high_byte;
     rxbuf += ch6_low_byte;
+
     // Switch 3
+    if (parseInt(ch7) < parseInt(ch7_target_val)) {
+        ch7 = parseInt(ch7) + ch_gap;
+        if (parseInt(ch7) >= parseInt(ch7_target_val)) {
+            ch7 = parseInt(ch7_target_val);
+        }
+    }
+    else if (parseInt(ch7) > parseInt(ch7_target_val)) {
+        ch7 = parseInt(ch7) - ch_gap;
+        if (parseInt(ch7) <= parseInt(ch7_target_val)) {
+            ch7 = parseInt(ch7_target_val);
+        }
+    }
     hex_ch7 = ch7.toString(16);
     hex_ch7 = hex_ch7.padStart(4, '0');
     let ch7_high_byte = hex_ch7.substr(0, 2);
     let ch7_low_byte = hex_ch7.substr(2, 2);
     rxbuf += ch7_high_byte;
     rxbuf += ch7_low_byte;
+
     // Switch 4
+    if (parseInt(ch8) < parseInt(ch8_target_val)) {
+        ch8 = parseInt(ch8) + ch_gap;
+        if (parseInt(ch8) >= parseInt(ch8_target_val)) {
+            ch8 = parseInt(ch8_target_val);
+        }
+    }
+    else if (parseInt(ch8) > parseInt(ch8_target_val)) {
+        ch8 = parseInt(ch8) - ch_gap;
+        if (parseInt(ch8) <= parseInt(ch8_target_val)) {
+            ch8 = parseInt(ch8_target_val);
+        }
+    }
     hex_ch8 = ch8.toString(16);
     hex_ch8 = hex_ch8.padStart(4, '0');
     let ch8_high_byte = hex_ch8.substr(0, 2);
@@ -620,13 +714,38 @@ function channel_val() {
     rxbuf += ch8_high_byte;
     rxbuf += ch8_low_byte;
     // Switch 5
+    if (parseInt(ch9) < parseInt(ch9_target_val)) {
+        ch9 = parseInt(ch9) + ch_gap;
+        if (parseInt(ch9) >= parseInt(ch9_target_val)) {
+            ch9 = parseInt(ch9_target_val);
+        }
+    }
+    else if (parseInt(ch9) > parseInt(ch9_target_val)) {
+        ch9 = parseInt(ch9) - ch_gap;
+        if (parseInt(ch9) <= parseInt(ch9_target_val)) {
+            ch9 = parseInt(ch9_target_val);
+        }
+    }
     hex_ch9 = ch9.toString(16);
     hex_ch9 = hex_ch9.padStart(4, '0');
     let ch9_high_byte = hex_ch9.substr(0, 2);
     let ch9_low_byte = hex_ch9.substr(2, 2);
     rxbuf += ch9_high_byte;
     rxbuf += ch9_low_byte;
+
     // Switch 6
+    if (parseInt(ch10) < parseInt(ch10_target_val)) {
+        ch10 = parseInt(ch10) + ch_gap;
+        if (parseInt(ch10) >= parseInt(ch10_target_val)) {
+            ch10 = parseInt(ch10_target_val);
+        }
+    }
+    else if (parseInt(ch10) > parseInt(ch10_target_val)) {
+        ch10 = parseInt(ch10) - ch_gap;
+        if (parseInt(ch10) <= parseInt(ch10_target_val)) {
+            ch10 = parseInt(ch10_target_val);
+        }
+    }
     hex_ch10 = ch10.toString(16);
     hex_ch10 = hex_ch10.padStart(4, '0');
     let ch10_high_byte = hex_ch10.substr(0, 2);
@@ -638,14 +757,16 @@ function channel_val() {
     // Switch 7
     if (parseInt(ch11) < parseInt(ch11_target_val)) {
         ch11 = parseInt(ch11) + ch_gap;
-    } else if (parseInt(ch11) > parseInt(ch11_target_val)) {
+        if (parseInt(ch11) >= parseInt(ch11_target_val)) {
+            ch11 = parseInt(ch11_target_val);
+        }
+    }
+    else if (parseInt(ch11) > parseInt(ch11_target_val)) {
         ch11 = parseInt(ch11) - ch_gap;
-    }
-    else{
-        ch11 = parseInt(ch12_target_val);
-    }
-
-    hex_ch11 = ch11.toString(16);
+        if (parseInt(ch11) <= parseInt(ch11_target_val)) {
+            ch11 = parseInt(ch11_target_val);
+        }
+    }    hex_ch11 = ch11.toString(16);
     hex_ch11 = hex_ch11.padStart(4, '0');
     let ch11_high_byte = hex_ch11.substr(0, 2);
     let ch11_low_byte = hex_ch11.substr(2, 2);
@@ -657,9 +778,15 @@ function channel_val() {
     // Switch 8
     if (parseInt(ch12) < parseInt(ch12_target_val)) {
         ch12 = parseInt(ch12) + ch_gap;
+        if (parseInt(ch12) >= parseInt(ch12_target_val)) {
+            ch12 = parseInt(ch12_target_val);
+        }
     }
     else if (parseInt(ch12) > parseInt(ch12_target_val)) {
         ch12 = parseInt(ch12) - ch_gap;
+        if (parseInt(ch12) <= parseInt(ch12_target_val)) {
+            ch12 = parseInt(ch12_target_val);
+        }
     }
     else {
         ch12 = parseInt(ch12_target_val);
@@ -670,28 +797,80 @@ function channel_val() {
     let ch12_low_byte = hex_ch12.substr(2, 2);
     rxbuf += ch12_high_byte;
     rxbuf += ch12_low_byte;
+
     // Switch 9
+    if (parseInt(ch13) < parseInt(ch13_target_val)) {
+        ch13 = parseInt(ch13) + ch_gap;
+        if (parseInt(ch13) >= parseInt(ch13_target_val)) {
+            ch13 = parseInt(ch13_target_val);
+        }
+    }
+    else if (parseInt(ch13) > parseInt(ch13_target_val)) {
+        ch13 = parseInt(ch13) - ch_gap;
+        if (parseInt(ch13) <= parseInt(ch13_target_val)) {
+            ch13 = parseInt(ch13_target_val);
+        }
+    }
     hex_ch13 = ch13.toString(16);
     hex_ch13 = hex_ch13.padStart(4, '0');
     let ch13_high_byte = hex_ch13.substr(0, 2);
     let ch13_low_byte = hex_ch13.substr(2, 2);
     rxbuf += ch13_high_byte;
     rxbuf += ch13_low_byte;
+
     // Switch 10
+    if (parseInt(ch14) < parseInt(ch14_target_val)) {
+        ch14 = parseInt(ch14) + ch_gap;
+        if (parseInt(ch14) >= parseInt(ch14_target_val)) {
+            ch14 = parseInt(ch14_target_val);
+        }
+    }
+    else if (parseInt(ch14) > parseInt(ch14_target_val)) {
+        ch14 = parseInt(ch14) - ch_gap;
+        if (parseInt(ch14) <= parseInt(ch14_target_val)) {
+            ch14 = parseInt(ch14_target_val);
+        }
+    }
     hex_ch14 = ch14.toString(16);
     hex_ch14 = hex_ch14.padStart(4, '0');
     let ch14_high_byte = hex_ch14.substr(0, 2);
     let ch14_low_byte = hex_ch14.substr(2, 2);
     rxbuf += ch14_high_byte;
     rxbuf += ch14_low_byte;
+
     // Switch 11
+    if (parseInt(ch15) < parseInt(ch15_target_val)) {
+        ch15 = parseInt(ch15) + ch_gap;
+        if (parseInt(ch15) >= parseInt(ch15_target_val)) {
+            ch15 = parseInt(ch15_target_val);
+        }
+    }
+    else if (parseInt(ch15) > parseInt(ch15_target_val)) {
+        ch15 = parseInt(ch15) - ch_gap;
+        if (parseInt(ch15) <= parseInt(ch15_target_val)) {
+            ch15 = parseInt(ch15_target_val);
+        }
+    }
     hex_ch15 = ch15.toString(16);
     hex_ch15 = hex_ch15.padStart(4, '0');
     let ch15_high_byte = hex_ch15.substr(0, 2);
     let ch15_low_byte = hex_ch15.substr(2, 2);
     rxbuf += ch15_high_byte;
     rxbuf += ch15_low_byte;
+
     // Switch 12
+    if (parseInt(ch16) < parseInt(ch16_target_val)) {
+        ch16 = parseInt(ch16) + ch_gap;
+        if (parseInt(ch16) >= parseInt(ch16_target_val)) {
+            ch16 = parseInt(ch16_target_val);
+        }
+    }
+    else if (parseInt(ch16) > parseInt(ch16_target_val)) {
+        ch16 = parseInt(ch16) - ch_gap;
+        if (parseInt(ch16) <= parseInt(ch16_target_val)) {
+            ch16 = parseInt(ch16_target_val);
+        }
+    }
     hex_ch16 = ch16.toString(16);
     hex_ch16 = hex_ch16.padStart(4, '0');
     let ch16_high_byte = hex_ch16.substr(0, 2);
@@ -709,7 +888,7 @@ function channel_val() {
     // rxbuf += '00';
     // console.log(rxbuf);
     // console.log(Buffer.from(rxbuf, 'hex'));
-    sbusPort.write(Buffer.from(rxbuf, 'hex'))
+    sbusPort.write(Buffer.from(rxbuf, 'hex'));
     sbusData();
 }
 
