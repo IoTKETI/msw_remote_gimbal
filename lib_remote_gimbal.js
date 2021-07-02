@@ -15,7 +15,7 @@ global.ch_min_val = 223; // 00 DF
 global.ch_mid_val = 1023; // 03 FF
 global.ch_max_val = 1823; // 07 1F
 
-global.ch_gap = 30;
+global.ch_gap = 20;
 // data_range_each_CH = 0~2047
 
 const RC = 0;
@@ -767,7 +767,8 @@ function channel_val() {
         if (parseInt(ch11) <= parseInt(ch11_target_val)) {
             ch11 = parseInt(ch11_target_val);
         }
-    }    hex_ch11 = ch11.toString(16);
+    }
+    hex_ch11 = ch11.toString(16);
     hex_ch11 = hex_ch11.padStart(4, '0');
     let ch11_high_byte = hex_ch11.substr(0, 2);
     let ch11_low_byte = hex_ch11.substr(2, 2);
