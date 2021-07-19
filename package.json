@@ -1,10 +1,9 @@
 {
-  "name": "create_rs232",
+  "name": "msw_remote_gimbal",
   "version": "1.0.0",
   "description": "",
-  "main": "pwm_to_rs232.js",
+  "main": "msw_remote_gimbal.js",
   "dependencies": {
-    "crc": "^3.8.0",
     "keypress": "^0.2.1",
     "mqtt": "^4.2.8",
     "serialport": "^9.2.0"
@@ -15,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dnjstjr93/create_rs232.git"
+    "url": "git+https://github.com/IoTKETI/msw_remote_gimbal.git"
   },
   "author": "Wonseok Jung",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dnjstjr93/create_rs232/issues"
+    "url": "https://github.com/IoTKETI/msw_remote_gimbal/issues"
   },
-  "homepage": "https://github.com/dnjstjr93/create_rs232#readme"
+  "homepage": "https://github.com/IoTKETI/msw_remote_gimbal#readme"
 }
