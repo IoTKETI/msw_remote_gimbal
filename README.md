@@ -5,4 +5,4 @@ This repository was developed to control the GREMSY T3 gimbal using the SBUS pro
 Handycam using the PWM signal.
 
 
-<p  align="center"><img  src="doc/Control_Gimbal_Camera.mp4_000002635.gif"  width="480"></p>
+<p  align="center"><img  src="doc/Control_Gimbal_Camera.mp4_000002635.gif"  width="720"></p>
